@@ -159,14 +159,16 @@
     function changePosV(type) {
         vudio.setOption({
             waveform : {
-                verticalAlign: type
+                verticalAlign: type,
+                fadeSide: true
             }
         });
     }
     function changePosH(type) {
         vudio.setOption({
             waveform : {
-                horizontalAlign: type
+                horizontalAlign: type,
+                fadeSide: true
             }
         });
     }
