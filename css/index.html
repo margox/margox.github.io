@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Things About CSS</title>
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <style id="clock-animations"></style>
+</head>
+<body>
+    <input type="checkbox" id="hide-start" class="hide-start">
+    <div id="techs" class="show-techs"></div>
+    <div id="demos" class="show-demos"></div>
+    <div id="sites" class="show-sites"></div>
+    <div class="background-wrap"></div>
+    <div class="solid-background-wrap"></div>
+    <header class="doc-header">
+        <label for="hide-start" class="btn-return-start"><i class="icon-home"></i></label>
+        <a href="#" class="btn-return-index"><i class="icon-menu"></i></a>
+        <div class="doc-title">
+            <span class="title-index">Things About CSS</span>
+            <span class="title-techs">CSS秘密花园</span>
+            <span class="title-demos">CSS黑魔法馆</span>
+            <span class="title-sites">实用网站推荐</span>
+        </div>
+        <a class="blog-link" href="http://margox.me" target="_blank">
+            <img src="assets/images/avatar.png">
+        </a>
+    </header>
+    <div class="page page-start">
+        <div class="start">
+            <h1 class="start-title"><span>Things About CSS</span></h1>
+            <h5 class="start-tip"><label for="hide-start">- CLICK HERE TO START -</label></h5>
+        </div>
+    </div>
+    <div class="page page-index">
+        <a href="#techs">
+            <i class="icon-vpn-key"></i>
+            <h5>CSS秘密花园</h5>
+        </a>
+        <a href="#demos">
+            <i class="icon-aspect-ratio"></i>
+            <h5>CSS黑魔法馆</h5>
+        </a>
+        <a href="#sites">
+            <i class="icon-language"></i>
+            <h5>实用网站推荐</h5>
+        </a>
+    </div>
+    <div class="page page-techs">
+        <div class="tech-artiches">
+            <article>
+                <h2 class="article-title">border-radius属性</h2>
+                <div class="article-content">
+                    <p>我们一般用 <span class="code">border-radius: 5px;</span> 或者 <span class="code">box-radius: 5px 5px 5px 5px;</span> 这样的代码来让一个元素具有半径为5px的圆角效果</p>
+                    <p>实际上border-radius是可以设置两组（最多8个）值的,用“/”分割。斜线前面的影响的是水平方向，斜线后面影响的是垂直方向，各个数字就分别代表四个不一样的方向。</p>
+                    <div class="code-block">
+                        <img width="512" src="assets/images/code1.png">
+                    </div>
+                    <p>利用上面的代码可以画个杯子的形状出来：</p>
+                    <div class="demo-area">
+                        <div class="demo-1"></div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h2 class="article-title">::first-letter伪元素和::first-line伪元素</h2>
+                <div class="article-content">
+                    <p>这两个伪元素长的比较像，所以就放到一起说了。</p>
+                    <p><span class="code">::first-letter</span> 顾名思义，这个伪元素影响的是元素的第一个文字，用这个特性，我们可以实现在杂志或者报纸中经常看到的文章首字超大的那种效果。</p>
+                    <div class="code-block">
+                        <img width="320" src="assets/images/code2.png">
+                    </div>
+                    <p>上面的代码将实现如下效果：</p>
+                    <div class="demo-area">
+                        <div class="demo-2">水浒传是中国历史上第一部用古白话文写成的歌颂农民起义的长篇章回体版块结构小说，以宋江领导的起义军为主要题材，通过一系列梁山英雄反抗压迫、英勇斗争的生动故事，暴露了北宋末年统治阶级的腐朽和残暴，揭露了当时尖锐对立的社会矛盾和“官逼民反”的残酷现实。按120回本计，前70回讲述各个好汉上梁山，后50回主要为宋江全伙受招安为朝廷效力，以及被奸臣所害。</div>
+                    </div>
+                    <p><span class="code">::first-line</span> 则是选择元素内部的第一行文字。</p>
+                    <div class="code-block">
+                        <img width="320" src="assets/images/code3.png">
+                    </div>
+                    <div class="demo-area">
+                        <div class="demo-3">水浒传是中国历史上第一部用古白话文写成的歌颂农民起义的长篇章回体版块结构小说，以宋江领导的起义军为主要题材，通过一系列梁山英雄反抗压迫、英勇斗争的生动故事，暴露了北宋末年统治阶级的腐朽和残暴，揭露了当时尖锐对立的社会矛盾和“官逼民反”的残酷现实。按120回本计，前70回讲述各个好汉上梁山，后50回主要为宋江全伙受招安为朝廷效力，以及被奸臣所害。</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h2 class="article-title">:empty伪类</h2>
+                <div class="article-content">
+                    <p><span class="code">:empty</span>伪类可以选择不包含任何子节点（甚至文本节点以及空格换行等）的空元素。</p>
+                    <div class="code-block">
+                        <img width="270" src="assets/images/code4_1.png"><br>
+                    </div>
+                    <div class="code-block">
+                        <img width="300" src="assets/images/code4_2.png">
+                    </div>
+                    <div class="demo-area">
+                        <div class="demo-4">
+                            <p>李翠婷</p>
+                            <p>周婷</p>
+                            <p></p>
+                            <p>唐雨婷</p>
+                        </div>
+                    </div>
+                    <p>如果上面第三个p标签包含了空格或者换行，那么使用<span class="code">:empty</span>也是无能为力的。不过在CSS4的草案中有一个<span class="code">:blank</span>选择器可以对付这种情况，只可惜目前还没有浏览器支持。</p>
+                    <p>另外CSS里面还有一个<span class="code">empty-cells</span>属性，可以指定当单元格为空的时候是否显示，不过感觉不怎么实用~~</p>
+                    <div class="code-block">
+                        <img width="460" src="assets/images/code4_3.png">
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h2 class="article-title">object-fit属性</h2>
+                <div class="article-content">
+                    <p>从这个属性的名称中就能知道它是和object有关的，关于DOM中的object的具体介绍可以查看这篇文章：<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element" target="_blank">《Replaced element》</a>。</p>
+                    <p>简单的说比如<span class="code">&lt;img&gt;</span>、<span class="code">&lt;video&gt;</span>、<span class="code">&lt;object&gt;</span>甚至<span class="code">&lt;textarea&gt;</span>等，都属于object。</p>
+                    <p>比较实用的用法是用这个属性来修饰<span class="code">&lt;img&gt;</span>。</p>
+                    <p><span class="code">object-fit</span> 有五个可能的值：</p>
+                    <p>
+                        <ul>
+                            <li><strong>fill</strong>: 中文释义“填充”。默认值。替换内容拉伸填满整个content box, 不保证保持原有的比例。</li>
+                            <li><strong>contain</strong>: 中文释义“包含”。保持原有尺寸比例。保证替换内容尺寸一定可以在容器里面放得下。因此，此参数可能会在容器内留下空白。</li>
+                            <li><strong>cover</strong>: 中文释义“覆盖”。保持原有尺寸比例。保证替换内容尺寸一定大于容器尺寸，宽度和高度至少有一个和容器一致。因此，此参数可能会让替换内容（如图片）部分区域不可见。</li>
+                            <li><strong>none</strong>: 中文释义“无”。保持原有尺寸比例。同时保持替换内容原始尺寸大小。</li>
+                            <li><strong>scale-down</strong>: 中文释义“降低”。就好像依次设置了<strong>none</strong>或<strong>contain</strong>, 最终呈现的是尺寸比较小的那个。</li>
+                        </ul>
+                    </p>
+                    <p>注：以上说明来自张鑫旭的文章<a href="http://www.zhangxinxu.com/wordpress/2015/03/css3-object-position-object-fit/comment-page-1/" target="_blank">《半深入理解CSS3 object-position/object-fit属性》</a>。</p>
+                    <div class="code-block">
+                        <img width="220" src="assets/images/code5.png">
+                    </div>
+                    <div class="demo-area demo-area-5">
+                        <div class="demo-5-1">
+                            <img src="assets/images/background-1.png">
+                        </div>
+                        <div class="demo-5-2">
+                            <img src="assets/images/background-1.png">
+                        </div>
+                        <div class="demo-5-3">
+                            <img src="assets/images/background-1.png">
+                        </div>
+                        <div class="demo-5-4">
+                            <img src="assets/images/background-1.png">
+                        </div>
+                        <div class="demo-5-5">
+                            <img src="assets/images/background-1.png">
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h2 class="article-title">currentColor</h2>
+                <div class="article-content">
+                    <p>这是一个神奇的属性值，可以用在除了color属性之外的任何需要使用颜色值的地方。这个属性值相当于一个变量，其实际值与元素的color值一致。</p>
+                    <div class="code-block">
+                        <img width="300" src="assets/images/code6.png">
+                    </div>
+                    <div class="demo-area demo-6">
+                        <a href="#">HELLO WORLD</a>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h2 class="article-title">:target伪类</h2>
+                <div class="article-content">
+                    <p><span class="code">:target</span>伪类可以指定被当前锚点定位到的元素的样式，本文档就使用了该特性，由于锚点的唯一性，所以更详细的演示需要稍候单独奉上。</p>
+                </div>
+            </article>
+            <article>
+                <h2 class="article-title">+选择器和~选择器</h2>
+                <div class="article-content">
+                    <p>这两个选择器或许是CSS里面仅有的可以选择兄弟元素的选择器了。合理利用这对好兄弟，就可以做出一些神奇的效果，同样的，本文档也运用到了其中一个。</p>
+                    <p><strong>+</strong>选择紧跟在指定元素后面的另外<strong>一个</strong>指定的元素，比如老大可以用它来命令老二，却不能用来命令老三老四。</p>
+                    <p><strong>~</strong>选择跟在指定元素后面的另外<strong>多个</strong>指定的元素，老大可以用它来命令老二老三老四等等。</p>
+                    <p>其实这两个选择器本身的特性并没有什么特别的，不过要是配合<span class="code">:checked</span>伪类，那就成了终极大杀器，稍后会有详细演示。</p>
+                    <p><strong>+</strong>选择器演示: <span class="code">.foo + .bar</span></p>
+                    <div class="demo-area">
+                        <div class="demo-8-1">
+                            <span class="foo">.foo</span>
+                            <span class="bar">.bar</span>
+                            <span class="bar">.bar</span>
+                            <span class="bar">.bar</span>
+                            <span class="bar">.bar</span>
+                        </div>
+                    </div>
+                    <p><strong>~</strong>选择器演示: <span class="code">.foo ~ .bar</span></p>
+                    <div class="demo-area">
+                        <div class="demo-8-2">
+                            <span class="bar">.bar</span>
+                            <span class="baz">.baz</span>
+                            <span class="foo">.foo</span>
+                            <span class="baz">.baz</span>
+                            <span class="bar">.bar</span>
+                            <span class="baz">.baz</span>
+                            <span class="bar">.bar</span>
+                        </div>
+                    </div>
+                    <p>关于<strong>+</strong>选择器，有个很实用的技巧: </p>
+                    <div class="code-block">
+                        <img width="260" src="assets/images/code8_3.png">
+                    </div>
+                    <div class="demo-area">
+                        <div class="demo-8-3">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h2 class="article-title">text-align: -moz-center/-webkit-center;</h2>
+                <div class="article-content">
+                    <p>好吧，我也不记得是从哪儿得知这俩属性值的，根据私有前缀猜测它们可能是默认启用的试验性特性，很难找到任何相关的规范文档。</p>
+                    <p>当某个元素设置了该属性之后，他的块级子元素就能够居中显示了，不用更改display，也不需要固定的宽度值，百分比即可，而且可以一直继承下去。</p>
+                    <div class="code-block">
+                        <img width="342" src="assets/images/code7_1.png"><br>
+                    </div>
+                    <div class="code-block">
+                        <img width="300" src="assets/images/code7_2.png">
+                    </div>
+                    <div class="demo-area demo-7">
+                        <div class="child">
+                            <div class="grand-child"></div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+    <div class="page page-demos">
+        <div class="demos-wrap">
+            <div class="demo-item-wrap">
+                <div class="demo-item">
+                    <i class="demo-icon icon-folder-open"></i>
+                    <h2 class="demo-title">纯CSS实现优雅的标签页</h2>
+                    <a href="./demos/tab.html" target="_blank" class="demo-link">查看Demo</a>
+                </div>
+            </div>
+            <div class="demo-item-wrap">
+                <div class="demo-item">
+                    <i class="demo-icon  icon-view-module"></i>
+                    <h2 class="demo-title">纯CSS实现相册幻灯片效果</h2>
+                    <a href="./demos/gallery.html" target="_blank" class="demo-link">查看Demo</a>
+                </div>
+            </div>
+            <div class="demo-item-wrap">
+                <div class="demo-item">
+                    <i class="demo-icon icon-query-builder"></i>
+                    <h2 class="demo-title">CSS加一点点JS实现漂亮的小时钟</h2>
+                    <a href="./demos/clock.html" target="_blank" class="demo-link">查看Demo</a>
+                </div>
+            </div>
+            <div class="demo-item-wrap">
+                <div class="demo-item">
+                    <i class="demo-icon icon-cube"></i>
+                    <h2 class="demo-title">纯CSS实现神奇的功能</h2>
+                    <a href="./demos/cube.html" target="_blank" class="demo-link">查看Demo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page page-sites">
+        <div class="site-wrap">
+            <a href="https://dribbble.com/" target="_blank">
+                <i class="icon-dribbble"></i>
+                <span>dribbble.com</span>
+            </a>
+            <a href="http://www.uisdc.com" target="_blank">
+                <i class="usdic"></i>
+                <span>优设网</span>
+            </a>
+            <a href="http://segmentfault.com/" target="_blank">
+                <i class="icomoon">sf</i>
+                <span>segmentfault</span>
+            </a>
+            <a href="http://devdocs.io/" target="_blank">
+                <i class="icon-grid-on"></i>
+                <span>devdocs.io</span>
+            </a>
+            <a href="https://developer.mozilla.org/zh-CN/docs/Web" target="_blank">
+                <i class="mdn">MDN</i>
+                <soan>mdn</soan>
+            </a>
+            <a href="http://easings.net/zh-cn" target="_blank">
+                <i class="icon-skyatlas"></i>
+                <span>缓动函数表</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
