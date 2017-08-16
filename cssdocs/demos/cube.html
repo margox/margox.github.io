@@ -1,231 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>CSS Cube</title>
-    <link rel="stylesheet" href="../assets/css/fonts.css">
-    <style>
-    html,body{
-        background-color: #eb4c89;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-    }
-    .cube-wrap{
-        position: relative;
-        height: 100%;
-        transition: .6s;
-        -webkit-perspective: 2000;
-        -webkit-perspective-origin: 50% 50%;
-    }
-    #zoom-cube:checked ~ .cube-wrap{
-        transform: scale(1.6);
-    }
-    .cube{
-    	position: absolute;
-    	top: 0;
-    	right: 0;
-    	bottom: 0;
-    	left: 0;
-    	width: 300px;
-    	height: 100px;
-    	margin: auto;
-        transition: .8s;
-    	-webkit-transform-style: preserve-3d;
-    	-webkit-transform-origin: 50% 50% -75px;
-    	-webkit-backface-visibility: visible;
-    }
-    #show-front:checked ~ .cube-wrap .cube{
-        -webkit-transform: rotateX(0) rotateY(0);
-    }
-    #show-back:checked ~ .cube-wrap .cube{
-        -webkit-transform: rotateX(0) rotateY(180deg);
-    }
-    #show-left:checked ~ .cube-wrap .cube{
-        -webkit-transform: rotateX(0) rotateY(90deg);
-    }
-    #show-right:checked ~ .cube-wrap .cube{
-        -webkit-transform: rotateX(0) rotateY(-90deg);
-    }
-    #show-top:checked ~ .cube-wrap .cube{
-        -webkit-transform: rotateX(-90deg) rotateY(0);
-    }
-    #show-bottom:checked ~ .cube-wrap .cube{
-        -webkit-transform: rotateX(90deg) rotateY(0);
-    }
-
-    .cube-face{
-        position: relative;
-    	background-color: #eb4c89;
-        outline: 1px solid rgba(0,0,0,.1);
-        outline-offset: -1px;
-    }
-    .cube-face i{
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width: 40px;
-        height: 40px;
-        margin: auto;
-        color: #fff;
-        font-size: 36px;
-        text-align: center;
-        line-height: 40px;
-    }
-    .cube-face-top{
-    	position: absolute;
-        width: 300px;
-        height: 150px;
-    	top: -150px;
-    	left: 0;
-    	-webkit-transform: rotateX(90deg);
-    	-webkit-transform-origin: 0 100%;
-    }
-    .cube-face-top:after,
-    .cube-face-bottom:after{
-    	content: '';
-    	display: block;
-    	position: absolute;
-    	top: 0;
-    	right: 0;
-    	bottom: 0;
-    	left: 0;
-    	background-color: rgba(0,0,0,.1);
-    }
-    .cube-face-left{
-    	position: absolute;
-    	top: 0;
-        width: 150px;
-        height: 100px;
-    	left: -150px;
-    	-webkit-transform: rotateY(-90deg);
-    	-webkit-transform-origin: 100% 0;
-    }
-
-    .cube-face-left:after,
-    .cube-face-right:after{
-    	content: '';
-    	display: block;
-    	position: absolute;
-    	top: 0;
-    	right: 0;
-    	bottom: 0;
-    	left: 0;
-    	background-color: rgba(0,0,0,.2);
-    }
-    .cube-face-front{
-    	position: absolute;
-    	top: 0;
-    	left: 0;
-        width: 300px;
-        height: 100px;
-    }
-    .cube-face-back{
-    	position: absolute;
-    	top: 0;
-    	left: 0;
-        width: 300px;
-        height: 100px;
-    	-webkit-transform: translateZ(-150px) rotateY(180deg);
-    }
-    .cube-face-right{
-    	position: absolute;
-    	top: 0;
-        width: 150px;
-        height: 100px;
-    	right: -150px;
-    	-webkit-transform: rotateY(90deg);
-    	-webkit-transform-origin: 0 0;
-    }
-    .cube-face-bottom{
-    	position: absolute;
-    	top: 100px;
-        width: 300px;
-        height: 150px;
-    	-webkit-transform: rotateX(-90deg);
-    	-webkit-transform-origin: 0 0;
-    }
-
-    input{
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: 0;
-    }
-    .button-wrap{
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width: 840px;
-        height: 50px;
-        margin: 0 auto;
-        font-size: 0;
-        text-align: center;
-    }
-    .button-wrap label{
-        display: inline-block;
-        width: 120px;
-        height: 50px;
-        margin: 0;
-        color: #fff;
-        font-size: 12px;
-        font-weight: bold;
-        line-height: 52px;
-        text-align: center;
-        text-decoration: none;
-        text-transform: uppercase;
-        transition: .3s;
-        background-color: rgba(255,255,255,.2);
-        transform: translateY(50px);
-    }
-    .button-wrap:hover label{
-        transform: translateY(0);
-    }
-    .button-wrap label:hover{
-        background-color: rgba(255,255,255,.3);
-    }
-    #show-front:checked ~ .button-wrap .for-front,
-    #show-back:checked ~ .button-wrap .for-back,
-    #show-left:checked ~ .button-wrap .for-left,
-    #show-right:checked ~ .button-wrap .for-right,
-    #show-top:checked ~ .button-wrap .for-top,
-    #show-bottom:checked ~ .button-wrap .for-bottom,
-    #zoom-cube:checked ~ .button-wrap .for-zoom-cube{
-        background-color: #fff;
-        color: #eb4c89;
-    }
-    </style>
+<meta charset="UTF-8">
+<title>CSS 3D DEMO</title>
+<link rel="stylesheet" href="res/style.css">
 </head>
 <body>
-    <input type="checkbox" id="zoom-cube">
-    <input type="radio" name="cube-controller" id="show-front" checked>
-    <input type="radio" name="cube-controller" id="show-back">
-    <input type="radio" name="cube-controller" id="show-top">
-    <input type="radio" name="cube-controller" id="show-bottom">
-    <input type="radio" name="cube-controller" id="show-left">
-    <input type="radio" name="cube-controller" id="show-right">
-    <div class="cube-wrap">
-        <div class="cube">
-            <div class="cube-face cube-face-front"><i class="icon-home"></i></div>
-            <div class="cube-face cube-face-back"><i class="icon-aspect-ratio"></i></div>
-            <div class="cube-face cube-face-top"><i class="icon-language"></i></div>
-            <div class="cube-face cube-face-left"><i class="icon-query-builder"></i></div>
-            <div class="cube-face cube-face-right"><i class="icon-view-module"></i></div>
-            <div class="cube-face cube-face-bottom"><i class="icon-vpn-key"></i></div>
+<div class="view-mode-btns">
+    <a href="#camera1">视角1</a>
+    <a href="#camera2">视角2</a>
+    <a href="#camera3">视角3</a>
+    <a href="#camera4">视角4</a>
+    <a href="#camera5">视角5</a>
+</div>
+<div class="map-container">
+    <div id="camera1"></div>
+    <div id="camera2"></div>
+    <div id="camera3"></div>
+    <div id="camera4"></div>
+    <div id="camera5"></div>
+    <div class="map">
+        <div class="boxes">
+            <div class="box-ground">
+                <div class="face-top"></div>
+                <div class="face-bottom"></div>
+                <div class="face-right"></div>
+                <div class="face-left"></div>
+                <div class="face-front">
+                     <div class="decorations">
+                        <div class="road-1"></div>
+                        <div class="road-2"></div>
+                    </div>
+                </div>
+                <div class="face-back"></div>
+            </div>
+            <div class="box1">
+                <div class="face-top"></div>
+                <div class="face-bottom"></div>
+                <div class="face-right"></div>
+                <div class="face-left"></div>
+                <div class="face-front"></div>
+                <div class="face-back"></div>
+            </div>
+            <div class="box2">
+                <div class="face-top"></div>
+                <div class="face-bottom"></div>
+                <div class="face-right"></div>
+                <div class="face-left"></div>
+                <div class="face-front"></div>
+                <div class="face-back"></div>
+            </div>
+            <div class="box3">
+                <div class="face-top"></div>
+                <div class="face-bottom"></div>
+                <div class="face-right"></div>
+                <div class="face-left"></div>
+                <div class="face-front"></div>
+                <div class="face-back"></div>
+            </div>
+            <div class="box4">
+                <div class="face-top"></div>
+                <div class="face-bottom"></div>
+                <div class="face-right"></div>
+                <div class="face-left"></div>
+                <div class="face-front"></div>
+                <div class="face-back"></div>
+            </div>
+            <div class="box5">
+                <div class="face-top"></div>
+                <div class="face-bottom"></div>
+                <div class="face-right"></div>
+                <div class="face-left"></div>
+                <div class="face-front"></div>
+                <div class="face-back"></div>
+            </div>
+            <div class="box6">
+                <div class="face-top"></div>
+                <div class="face-bottom"></div>
+                <div class="face-right"></div>
+                <div class="face-left"></div>
+                <div class="face-front"></div>
+                <div class="face-back"></div>
+            </div>
+            <div class="box7">
+                <div class="face-top"></div>
+                <div class="face-bottom"></div>
+                <div class="face-right"></div>
+                <div class="face-left"></div>
+                <div class="face-front"></div>
+                <div class="face-back"></div>
+            </div>
+            <div class="box8">
+                <div class="face-top"></div>
+                <div class="face-bottom"></div>
+                <div class="face-right"></div>
+                <div class="face-left"></div>
+                <div class="face-front"></div>
+                <div class="face-back"></div>
+            </div>
+            <div class="box9">
+                <div class="face-top"></div>
+                <div class="face-bottom"></div>
+                <div class="face-right"></div>
+                <div class="face-left"></div>
+                <div class="face-front"></div>
+                <div class="face-back"></div>
+            </div>
+            <div class="box10">
+                <div class="face-top"></div>
+                <div class="face-bottom"></div>
+                <div class="face-right"></div>
+                <div class="face-left"></div>
+                <div class="face-front"></div>
+                <div class="face-back"></div>
+            </div>
+            <div class="box11">
+                <div class="face-top"></div>
+                <div class="face-bottom"></div>
+                <div class="face-right"></div>
+                <div class="face-left"></div>
+                <div class="face-front"></div>
+                <div class="face-back"></div>
+            </div>
+            <div class="box12">
+                <div class="face-top"></div>
+                <div class="face-bottom"></div>
+                <div class="face-right"></div>
+                <div class="face-left"></div>
+                <div class="face-front"></div>
+                <div class="face-back"></div>
+            </div>
+            <div class="box13">
+                <div class="face-top"></div>
+                <div class="face-bottom"></div>
+                <div class="face-right"></div>
+                <div class="face-left"></div>
+                <div class="face-front"></div>
+                <div class="face-back"></div>
+            </div>
+            <div class="box14">
+                <div class="face-top"></div>
+                <div class="face-bottom"></div>
+                <div class="face-right"></div>
+                <div class="face-left"></div>
+                <div class="face-front"></div>
+                <div class="face-back"></div>
+            </div>
+            <div class="box15">
+                <div class="face-top"></div>
+                <div class="face-bottom"></div>
+                <div class="face-right"></div>
+                <div class="face-left"></div>
+                <div class="face-front"></div>
+                <div class="face-back"></div>
+            </div>
+            <div class="box16">
+                <div class="face-top"></div>
+                <div class="face-bottom"></div>
+                <div class="face-right"></div>
+                <div class="face-left"></div>
+                <div class="face-front"></div>
+                <div class="face-back"></div>
+            </div>
+            <div class="box17">
+                <div class="face-top"></div>
+                <div class="face-bottom"></div>
+                <div class="face-right"></div>
+                <div class="face-left"></div>
+                <div class="face-front"></div>
+                <div class="face-back"></div>
+            </div>
+            <div class="box18">
+                <div class="face-top"></div>
+                <div class="face-bottom"></div>
+                <div class="face-right"></div>
+                <div class="face-left"></div>
+                <div class="face-front"></div>
+                <div class="face-back"></div>
+            </div>
+            <div class="car1">
+                <div class="face-top"></div>
+                <div class="face-bottom"></div>
+                <div class="face-right"></div>
+                <div class="face-left"></div>
+                <div class="face-front"></div>
+                <div class="face-back"></div>
+            </div>
         </div>
+        <div class="ground"></div>
     </div>
-    <div class="button-wrap">
-        <label class="for-front" for="show-front">Front</label>
-        <label class="for-back" for="show-back">Back</label>
-        <label class="for-top" for="show-top">Top</label>
-        <label class="for-bottom" for="show-bottom">Bottom</label>
-        <label class="for-left" for="show-left">Left</label>
-        <label class="for-right" for="show-right">Right</label>
-        <label class="for-zoom-cube" for="zoom-cube">Zoom</label>
-    </div>
+</div>
 </body>
 </html>
